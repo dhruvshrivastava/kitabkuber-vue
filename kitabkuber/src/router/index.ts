@@ -1,7 +1,8 @@
-import { createRouter, createWebHashHistory} from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
 import Home from '../views/Home.vue'
 import Catalog from '../views/Catalog.vue'
 import Product from '../views/Product.vue'
+import Search from '../views/Search.vue'
 
 const routes = [
   {
@@ -20,6 +21,11 @@ const routes = [
     component: Product
   },
   {
+    path: '/search',
+    name: 'Search',
+    component: Search
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -27,11 +33,12 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
+
   
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 

@@ -108,11 +108,13 @@
               </div>
 
               <!-- Search -->
-              <div class="flex lg:ml-6">
-                <a href="" class="p-2 text-gray-400 hover:text-gray-500">
+              <div class="flex lg:ml-4">
                   <span class="sr-only">Search</span>
-                  <SearchIcon class="w-6 h-6" aria-hidden="true" />
-                </a>
+                  <form method="get" action="/search">
+                    <div class = "control">
+                      <input type = "text" class = "submit" placeholder="Search Books" name = "query">
+                    </div>
+                  </form>
               </div>
             </div>
           </div>
@@ -165,7 +167,6 @@ export default {
     TransitionChild,
     TransitionRoot,
     MenuIcon,
-    SearchIcon,
     XIcon,
   },
   setup() {
