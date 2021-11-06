@@ -67,11 +67,26 @@
           <p class="text-2xl text-gray-900"><strong>Deposit:</strong> Rs.{{ product.deposit }}</p>
 
 
-          <form class="mt-10">
-            <button type="submit" class="mt-10 w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Rent</button>
-            <button type="submit" class="mt-10 w-full bg-yellow-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Buy</button>
-
+          <form class="mt-10" @submit.prevent="submitRentCheckout">
+          <div>
+                    <label for="price" class="block text-sm font-medium text-gray-700">Enter Rental Period (in Months)</label>
+                    <div class="mt-1 relative rounded-md shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span class="text-gray-500 sm:text-sm">
+                        Months 
+                        </span>
+                    </div>
+                    <input type="text" v-bind = "rental_period" name="months" id="months" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" />
+                    </div>
+            </div>
+            <button type="submit" 
+            class="mt-10 w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 foc
+            us:ring-indigo-500" @click="submitRentCheckout">Rent</button>
           </form>
+            <button type="submit" class="mt-10 w-full bg-yellow-600 border border-transparent 
+            rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 
+            focus:ring-offset-2 focus:ring-indigo-500" @click="submitBuyCheckout">Buy</button>
+          
         </div>
 
         <div class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -108,11 +123,13 @@ import { StarIcon } from '@heroicons/vue/solid'
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import axios from 'axios'
 
+
 export default {
     name: 'Product',
     data() {
         return {
-            product: {}
+            product: {},
+            rental_period: null 
         }
     },
     mounted() {
@@ -132,7 +149,22 @@ export default {
                 .catch(error => {
                     console.log(error)
                 })
-        }
+        },
+        submitBuyCheckout() {
+            const item = {
+                product: this.product
+            }
+            this.$store.commit('addToBuy', item)
+            this.$router.push('/buy-checkout')
+        },
+        submitRentCheckout() {
+            const item = {
+                product: this.product,
+                rental_period: this.rental_period
+            }
+            this.$store.commit('addToRent', item)
+            this.$router.push('/rent-checkout')
+        },
     },
 
     components: {

@@ -8,6 +8,8 @@ import Login from '../views/Login.vue'
 import MyAccount from '../views/MyAccount.vue'
 import { storeKey } from 'vuex'
 import store from '../store'
+import BuyCheckout from '../views/BuyCheckout.vue'
+import RentCheckout from '../views/RentCheckout.vue'
 
 const routes = [
   {
@@ -50,6 +52,16 @@ const routes = [
     path: '/search',
     name: 'Search',
     component: Search
+  },
+  {
+    path: '/buy-checkout',
+    name: 'BuyCheckout',
+    component: BuyCheckout
+  },
+  {
+    path: '/rent-checkout',
+    name: 'RentCheckout',
+    component: RentCheckout
   },
   {
     path: '/about',
