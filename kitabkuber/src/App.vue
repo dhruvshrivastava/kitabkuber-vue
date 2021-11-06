@@ -98,9 +98,13 @@
               </a>
             </div>
 
-         
+                 <div class="ml-auto flex items-center" v-if="$store.state.isAuthenticated">
+              <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                <a href="/my-account/" class="text-sm font-medium text-gray-700 hover:text-gray-800">My account</a>
+                 </div>
+                 </div>
 
-            <div class="ml-auto flex items-center">
+            <div class="ml-auto flex items-center" v-else>
               <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                 <a href="/login/" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
                 <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
@@ -125,8 +129,10 @@
   </div>
 </template>
 
+
 <script>
 import { ref } from 'vue'
+import axios from 'axios'
 import {
   Dialog,
   DialogOverlay,
@@ -144,14 +150,18 @@ import {
 } from '@headlessui/vue'
 import { MenuIcon, SearchIcon, XIcon } from '@heroicons/vue/outline'
 
-const navigation = {
-
-  pages: [
-    { name: 'Rental Plans', href: '/plans/' },
-  ],
-}
-
 export default {
+  beforeCreate() {
+    this.$store.commit('initializeStore')
+    const token = this.$store.state.token
+    if (token) {
+        axios.defaults.headers.common['Authorization'] = "Token " + token
+    } else {
+        axios.defaults.headers.common['Authorization'] = ""
+    }
+  },
+
+
   components: {
     Dialog,
     DialogOverlay,
@@ -169,11 +179,11 @@ export default {
     MenuIcon,
     XIcon,
   },
+
   setup() {
     const open = ref(false)
 
     return {
-      navigation,
       open,
     }
   },
