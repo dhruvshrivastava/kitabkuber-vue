@@ -110,7 +110,7 @@
                 <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
                 <a href="/register/" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
               </div>
-
+              </div>
               <!-- Search -->
               <div class="flex lg:ml-4">
                   <span class="sr-only">Search</span>
@@ -120,7 +120,7 @@
                     </div>
                   </form>
               </div>
-            </div>
+            
           </div>
           <router-view></router-view>
         </div>

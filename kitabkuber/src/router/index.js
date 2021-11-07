@@ -62,12 +62,18 @@ const routes = [
   {
     path: '/buy-checkout',
     name: 'BuyCheckout',
-    component: BuyCheckout
+    component: BuyCheckout,
+    meta: {
+      requireLogin: true
+  }
   },
   {
     path: '/rent-checkout',
     name: 'RentCheckout',
-    component: RentCheckout
+    component: RentCheckout,
+    meta: {
+      requireLogin: true
+  }
   },
   {
     path: '/about',
