@@ -183,7 +183,10 @@ export default {
                 'book_name': this.buy["name"],
                 'mrp': this.buy["mrp"],
                 'rent': this.buy["rent"],
-                'deposit': this.buy["deposit"]
+                'deposit': this.buy["deposit"],
+                "type":"buy",
+                "rental_period":0
+
             }
             await axios
                 .post('/api/v1/checkout/', data)

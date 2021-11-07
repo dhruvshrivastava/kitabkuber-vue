@@ -76,7 +76,7 @@
                         Months 
                         </span>
                     </div>
-                    <input type="text" v-bind = "rental_period" name="months" id="months" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" />
+                    <input type="text" v-model="rental_period" name="months" id="months" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" />
                     </div>
             </div>
             <button type="submit" 
@@ -164,7 +164,11 @@ export default {
         },
         submitRentCheckout() {
             const item = {
-                product: this.product,
+                name: this.product.name,
+                mrp: this.product.mrp,
+                rent: this.product.rent,
+                deposit: this.product.deposit,
+                thumbnail: this.product.get_thumbnail,
                 rental_period: this.rental_period
             }
             this.$store.commit('addToRent', item)
