@@ -152,9 +152,14 @@ export default {
         },
         submitBuyCheckout() {
             const item = {
-                product: this.product
+                name: this.product.name,
+                mrp: this.product.mrp,
+                rent: this.product.rent,
+                deposit: this.product.deposit,
+                thumbnail: this.product.get_thumbnail
             }
-            this.$store.commit('addToBuy', item)
+            this.$store.commit('addToBuy',item)
+            
             this.$router.push('/buy-checkout')
         },
         submitRentCheckout() {

@@ -10,12 +10,18 @@ import { storeKey } from 'vuex'
 import store from '../store'
 import BuyCheckout from '../views/BuyCheckout.vue'
 import RentCheckout from '../views/RentCheckout.vue'
+import Success from '../views/Success.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/success',
+    name: 'Success',
+    component: Success
   },
   {
     path: '/books/',

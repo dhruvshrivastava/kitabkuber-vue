@@ -5,22 +5,18 @@ export default createStore({
   state: {
     isAuthenticated: false,
     token: " ",
-    buy: {
-      item: []
-    },
-    rent: {
-      item: []
-    }
+    buy: [],
+    rent: [],
   },
   mutations: {
     initializeStore(state) {
       if (localStorage.getItem('buy')) {
-        state.buy = JSON.parse(localStorage.getItem('buy'))
+        state.buy = localStorage.getItem('buy')
       } else {
         localStorage.setItem('buy', JSON.stringify(state.buy))
       }
       if (localStorage.getItem('rent')) {
-        state.buy = JSON.parse(localStorage.getItem('rent'))
+        state.rent = localStorage.getItem('rent')
       } else {
         localStorage.setItem('rent', JSON.stringify(state.rent))
       }
@@ -36,10 +32,10 @@ export default createStore({
       }
     },
     addToBuy(state, item) {
-      state.buy.item.push(item)
+      state.buy = item
     },
     addToRent(state, item) {
-      state.rent.item.push(item)
+      state.rent = item
     },
     setToken(state, token) {
       state.token = token
