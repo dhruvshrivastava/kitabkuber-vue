@@ -185,7 +185,8 @@ export default {
                 'rent': this.buy["rent"],
                 'deposit': this.buy["deposit"],
                 "type":"buy",
-                "rental_period":0
+                "rental_period":0,
+                "thumbnail": this.buy["thumbnail"]
 
             }
             await axios
