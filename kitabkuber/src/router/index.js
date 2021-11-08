@@ -11,6 +11,7 @@ import store from '../store'
 import BuyCheckout from '../views/BuyCheckout.vue'
 import RentCheckout from '../views/RentCheckout.vue'
 import Success from '../views/Success.vue'
+import Category from '../views/Category.vue'
 
 const routes = [
   {
@@ -53,6 +54,11 @@ const routes = [
     path: '/:category_slug/:book_slug',
     name: 'Product',
     component: Product
+  },
+  {
+    path: '/:category_slug',
+    name: 'Category',
+    component: Category
   },
   {
     path: '/search',

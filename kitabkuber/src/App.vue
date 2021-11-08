@@ -58,6 +58,22 @@
               </a>
             </div>
 
+            <div class="ml-auto flex items-center" >
+              <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                <a href="/sat" class="text-sm font-medium text-gray-700 hover:text-gray-800">SAT</a>
+                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
+                <a href="/iit-jee" class="text-sm font-medium text-gray-700 hover:text-gray-800">IIT-JEE</a>
+                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
+                <a href="/gre" class="text-sm font-medium text-gray-700 hover:text-gray-800">GRE</a>
+                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
+                <a href="/gmat" class="text-sm font-medium text-gray-700 hover:text-gray-800">GMAT</a>
+                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
+                <a href="/toefl" class="text-sm font-medium text-gray-700 hover:text-gray-800">TOEFL</a>
+                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
+                <a href="/ielts" class="text-sm font-medium text-gray-700 hover:text-gray-800">IELTS</a>
+              </div>
+              </div>
+
                  <div class="ml-auto flex items-center" v-if="$store.state.isAuthenticated">
               <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                 <a href="/my-account/" class="text-sm font-medium text-gray-700 hover:text-gray-800">My account</a>
