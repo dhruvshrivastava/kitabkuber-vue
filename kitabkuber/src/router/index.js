@@ -12,6 +12,8 @@ import BuyCheckout from '../views/BuyCheckout.vue'
 import RentCheckout from '../views/RentCheckout.vue'
 import Success from '../views/Success.vue'
 import Category from '../views/Category.vue'
+import SuccessEnquiry from '../views/SuccessEnquiry.vue'
+import Enquiry from '../views/Enquiry.vue'
 
 const routes = [
   {
@@ -33,6 +35,18 @@ const routes = [
     path: '/register',
     name: 'Signup',
     component: Signup
+
+  },
+  {
+    path: '/enquiry',
+    name: 'Enquiry',
+    component: Enquiry
+
+  },
+  {
+    path: '/success-enquiry',
+    name: 'SuccessEnquiry',
+    component: SuccessEnquiry
 
   },
   {

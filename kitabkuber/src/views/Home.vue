@@ -56,7 +56,7 @@
       </div>
       <div class="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
         <p> Don't see a book you want in our catalog? Submit an enquiry and we'll get that sorted. </p><br>
-        <button class="px-4 py-2 bg-green-800 hover:bg-green-900 rounded text-white">Submit Enquiry</button>
+        <router-link to="/enquiry"><button class="px-4 py-2 bg-green-800 hover:bg-green-900 rounded text-white">Submit Enquiry</button></router-link>
       </div>
     </div>
  
