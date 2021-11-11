@@ -4,7 +4,7 @@
     <div class="max-w-md w-full space-y-8">
       <div>
         <h2 class="mt-6 text-center text-3xl  text-gray-900">
-          Don't see a book you want in our catalog? Submit an enquiry and we'll get that sorted. 
+          Don't see a book you want in our catalog? Submit an enquiry and we'll arrange the book for you. 
         </h2>
       </div>
       <form class="mt-8 space-y-6" @submit.prevent='submitForm'>

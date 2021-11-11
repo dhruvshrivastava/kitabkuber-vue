@@ -55,7 +55,7 @@
         <p class="mb-4 text-sm">Mobile: +91 9599541241<br> Email: kitabkuber@gmail.com</p>
       </div>
       <div class="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
-        <p> Don't see a book you want in our catalog? Submit an enquiry and we'll get that sorted. </p><br>
+        <p> Don't see a book you want in our catalog? Submit an enquiry and we'll arrange the book for you </p><br>
         <router-link to="/enquiry"><button class="px-4 py-2 bg-green-800 hover:bg-green-900 rounded text-white">Submit Enquiry</button></router-link>
       </div>
     </div>
