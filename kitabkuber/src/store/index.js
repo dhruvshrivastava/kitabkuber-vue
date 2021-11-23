@@ -1,5 +1,6 @@
 import { toTypeString } from '@vue/shared'
 import { createStore } from 'vuex'
+import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
   state: {
@@ -7,7 +8,10 @@ export default createStore({
     token: " ",
     buy: [],
     rent: [],
+    order: [],
+
   },
+
   mutations: {
     initializeStore(state) {
       if (localStorage.getItem('buy')) {
@@ -19,6 +23,11 @@ export default createStore({
         state.rent = localStorage.getItem('rent')
       } else {
         localStorage.setItem('rent', JSON.stringify(state.rent))
+      }
+      if (localStorage.getItem('order')) {
+        state.order = localStorage.getItem('order')
+      } else {
+        localStorage.setItem('order', JSON.stringify(state.order))
       }
 
 
@@ -37,6 +46,9 @@ export default createStore({
     addToRent(state, item) {
       state.rent = item
     },
+    addToOrder(state, data) {
+      state.order = data
+    },
     setToken(state, token) {
       state.token = token
       state.isAuthenticated = true
@@ -44,10 +56,12 @@ export default createStore({
     removeToken(state) {
       state.token = ''
       state.isAuthenticated = false
-    }
+    },
+
   },
   actions: {
   },
   modules: {
-  }
+  },
+  plugins: [createPersistedState()],
 })

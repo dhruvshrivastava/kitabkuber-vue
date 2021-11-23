@@ -14,12 +14,24 @@ import Success from '../views/Success.vue'
 import Category from '../views/Category.vue'
 import SuccessEnquiry from '../views/SuccessEnquiry.vue'
 import Enquiry from '../views/Enquiry.vue'
+import PaymentOptions from '../views/PaymentOptions.vue'
+import FAQ from '../views/FAQ.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/payment-options',
+    name: 'PaymentOptions',
+    component: PaymentOptions
+  },
+  {
+    path: '/faq',
+    name: 'FAQ',
+    component: FAQ
   },
   {
     path: '/success',

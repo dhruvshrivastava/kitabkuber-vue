@@ -16,7 +16,9 @@
 
 
     <div class="buttons-container flex space-x-2 md:space-x-4 text-white dark:text-white my-12">
-      <router-link to = "/books/"><buton class="font-semibold rounded-md text-sm md:text-base bg-green-500 px-4 py-2 md:px-8 md:py-4 cursor-pointer transform transition duration-200 hover:shadow-xl hover:-translate-y-1"> <span class="hidden lg:inline-block">Browse</span> Catalog </buton>
+      <router-link to = "/books/"><button class="font-semibold rounded-md text-sm md:text-base bg-green-500 px-4 py-2 md:px-8 md:py-4 cursor-pointer transform transition duration-200 hover:shadow-xl hover:-translate-y-1"> <span class="hidden lg:inline-block">Browse</span> Catalog </button>
+      </router-link>
+        <router-link to = "/faq/"><button class="font-semibold rounded-md text-sm md:text-base bg-yellow-500 px-4 py-2 md:px-8 md:py-4 cursor-pointer transform transition duration-200 hover:shadow-xl hover:-translate-y-1"> <span class="hidden lg:inline-block">View</span> FAQs </button>
       </router-link>
     </div>
   </div>
@@ -46,13 +48,13 @@
       <div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
         <h6 class="font-bold mb-2">Address</h6>
         <address class="not-italic mb-4 text-sm">
-          C-019, 81 Business Street<br>
+          KitabKuber, Shop No: C-019, 81 Business Hub, 81 High Street,<br> Sector 81
          Faridabad, Haryana, 121002
         </address>
       </div>
       <div class="px-4 sm:w-1/2 md:w-1/4 mt-4 md:mt-0">
         <h6 class="font-bold mb-2">Contact Us </h6>
-        <p class="mb-4 text-sm">Mobile: +91 9599541241<br> Email: kitabkuber@gmail.com</p>
+        <p class="mb-4 text-sm">Mobile: +91 9599541241<br> Landline: 0129-400974<br> Email: kitabkuber@gmail.com</p>
       </div>
       <div class="px-4 md:w-1/4 md:ml-auto mt-6 sm:mt-4 md:mt-0">
         <p> Don't see a book you want in our catalog? Submit an enquiry and we'll arrange the book for you </p><br>

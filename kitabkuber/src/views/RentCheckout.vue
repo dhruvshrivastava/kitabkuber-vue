@@ -39,26 +39,26 @@
         </div>
                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
-            Deposit
+            Refundable Deposit
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ rent["deposit"] }}
+            {{ rent["deposit"] }} <strong>(Please Note: The deposit will be refunded back to you once your rental period is over and the book is returned)</strong>
+          </dd>
+        </div>
+                      <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+           Shipping Charges
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+           <p>Rs. 50</p>
           </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
-            Total Payable
+            Total Payable (Inclusive of rent, deposit and shipping charges)
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             {{ total }}
-          </dd>
-        </div>
-                <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-            Payment Options
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            We are currently only accepting Cash on Delivery/UPI on Delivery as payment options. 
           </dd>
         </div>
       </dl>
@@ -122,7 +122,7 @@
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <button @click="submitForm" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Checkout
+                View Payment Options
               </button>
             </div>
           </div>
@@ -137,6 +137,7 @@
 
 <script>
 import axios from 'axios'
+import Razorpay from 'razorpay'
 export default {
     name: 'Checkout',
     data() {
@@ -151,7 +152,7 @@ export default {
             state: '',
             pincode: '',
             errors: [],
-            total: 0
+            total: 0,
         }
     },
     mounted() {
@@ -187,6 +188,7 @@ export default {
             }
             if (this.pincode === '') {
                 this.errors.push('The zip code field is missing!')
+
             }
 
             const data = {
@@ -204,16 +206,27 @@ export default {
                 'deposit': this.rent["deposit"],
                 "type":"rent",
                 "rental_period":this.rent["rental_period"],
-                "thumbnail": this.rent["thumbnail"]
+                "thumbnail": this.rent["thumbnail"],
+                "total": this.total,
 
             }
-            await axios
-                .post('/api/v1/checkout/', data)
-                .then(this.$router.push('/success'))
-                .catch(error => {
-                    this.errors.push('Something went wrong. Please try again')
-                    console.log(error)
-                })
+            this.$store.commit('addToOrder',data)
+
+            var instance = new Razorpay({
+              key_id: 'rzp_test_nu2nF7P7OpVGhq',
+              key_secret: 'zHZDfR4Yo8QBIjn2PZLzr811',
+            });
+            var options = {
+              amount: this.total, 
+              currency: "INR",
+              receipt: "order_rcptid_11"
+            };
+            instance.orders.create(options, function(err, order) {
+              console.log(order);
+            });
+
+            this.$router.push('/payment-options')
+
         },
 
     },

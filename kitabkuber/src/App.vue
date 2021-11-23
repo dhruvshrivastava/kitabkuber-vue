@@ -38,9 +38,6 @@
     </TransitionRoot>
 
     <header class="relative bg-white">
-      <p class="bg-green-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
-        Currently only operating in the Delhi-NCR area
-      </p>
 
       <nav aria-label="Top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="border-b border-gray-200">
@@ -57,22 +54,30 @@
                 <img class="h-40 w-auto" src="./assets/logo.png" alt=""/>
               </a>
             </div>
+<div class="p-10">
 
-            <div class="ml-auto flex items-center" >
-              <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                <a href="/sat" class="text-sm font-medium text-gray-700 hover:text-gray-800">SAT</a>
-                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
-                <a href="/iit-jee" class="text-sm font-medium text-gray-700 hover:text-gray-800">IIT-JEE</a>
-                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
-                <a href="/gre" class="text-sm font-medium text-gray-700 hover:text-gray-800">GRE</a>
-                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
-                <a href="/gmat" class="text-sm font-medium text-gray-700 hover:text-gray-800">GMAT</a>
-                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
-                <a href="/toefl" class="text-sm font-medium text-gray-700 hover:text-gray-800">TOEFL</a>
-                <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
-                <a href="/ielts" class="text-sm font-medium text-gray-700 hover:text-gray-800">IELTS</a>
-              </div>
-              </div>
+  <div class="dropdown inline-block relative">
+    <button class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+      <span class="mr-1">View Categories</span>
+      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+    </button>
+    <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+      <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/sat">SAT</a></li>
+      <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/ielts">IELTS</a></li>
+      <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/gre">GRE</a></li>
+      <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/gmat">GMAT</a></li>
+      <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/toefl">TOEFL</a></li>
+      <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/ielts">IELTS</a></li>
+      <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/iit-jee">IIT-JEE</a></li>
+      <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/bank-po">BANK PO</a></li>
+      <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/nda">NDA</a></li>
+      <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/ssc">SSC</a></li>
+      <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/neet">NEET</a></li>
+      <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/celpip">CELPIP</a></li>
+    </ul>
+  </div>
+
+</div>
 
                  <div class="ml-auto flex items-center" v-if="$store.state.isAuthenticated">
               <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
@@ -165,3 +170,9 @@ export default {
   },
 }
 </script>
+<style>
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+</style>

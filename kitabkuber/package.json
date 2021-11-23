@@ -13,9 +13,11 @@
     "@headlessui/vue": "^1.4.1",
     "@heroicons/vue": "^1.0.5",
     "axios": "^0.24.0",
+    "razorpay": "^2.0.7",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-router": "~4.5.0",

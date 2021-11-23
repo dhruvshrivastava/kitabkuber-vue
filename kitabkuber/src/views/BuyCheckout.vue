@@ -36,21 +36,22 @@
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             {{ buy["mrp"] }}
           </dd>
+          
+        </div>
+                              <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+           Shipping Charges
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+           <p>Rs. 50</p>
+          </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
             Total Payable
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ buy["mrp"] }}
-          </dd>
-        </div>
-        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-            Payment Options
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            We are currently only accepting Cash on Delivery/UPI on Delivery as payment options. 
+            {{ total }}
           </dd>
         </div>
       </dl>
@@ -114,7 +115,7 @@
             </div>
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <button @click="submitForm" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Checkout
+                View Payment Options 
               </button>
             </div>
           </div>
@@ -142,13 +143,15 @@ export default {
             city: '',
             state: '',
             pincode: '',
-            errors: []
+            errors: [],
+            total: 0,
+
         }
     },
     mounted() {
         document.title = 'Checkout | KitabKuber'
         this.buy = this.$store.state.buy
-        console.log(this.buy)
+        this.total = this.buy["mrp"] + 50
         
     },
     methods: {
@@ -178,7 +181,6 @@ export default {
             if (this.pincode === '') {
                 this.errors.push('The zip code field is missing!')
             }
-
             const data = {
                 'first_name': this.first_name,
                 'last_name': this.last_name,
@@ -194,16 +196,25 @@ export default {
                 'deposit': this.buy["deposit"],
                 "type":"buy",
                 "rental_period":0,
-                "thumbnail": this.buy["thumbnail"]
+                "thumbnail": this.buy["thumbnail"],
+                "total": this.total,
+                "payment": ""
 
             }
+            const postData = {
+              'total': this.total
+            }
+            this.$store.commit('addToOrder',data)
             await axios
-                .post('/api/v1/checkout/', data)
-                .then(this.$router.push('/success'))
-                .catch(error => {
-                    this.errors.push('Something went wrong. Please try again')
-                    console.log(error)
-                })
+            .post('/api/v1/create-rp-order/', postData)
+            .then(
+              this.$router.push('/payment-options')
+            )
+            .catch(error => {
+              console.log(error)
+            })
+
+            
         },
 
     },
