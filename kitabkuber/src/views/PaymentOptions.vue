@@ -54,7 +54,7 @@ export default {
         this.phone = this.order["phone"]
         
         var options = {
-                "key": "rzp_test_nu2nF7P7OpVGhq",
+                "key": "rzp_live_o773T9iMnfqoc5",
                 "amount": this.total, 
                 "currency": "INR",
                 "name": "KitabKuber",

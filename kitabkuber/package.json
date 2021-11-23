@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "postinstall": "npm run build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@babel/plugin-transform-regenerator": "^7.16.0",
@@ -13,7 +15,9 @@
     "@headlessui/vue": "^1.4.1",
     "@heroicons/vue": "^1.0.5",
     "axios": "^0.24.0",
+    "express": "^4.17.1",
     "razorpay": "^2.0.7",
+    "serve-static": "^1.14.1",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
