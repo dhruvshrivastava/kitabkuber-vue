@@ -47,7 +47,7 @@
       <!-- Image gallery -->
       <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-2xl lg:px-8 lg:grid lg:grid-cols-1 lg:gap-x-8">
         <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-          <img :src="product.get_image"  class="w-full h-50 object-center object-cover" />
+          <img :src="'kitabkuber-django.herokuapp.com'+product.get_image"  class="w-full h-50 object-center object-cover" />
         </div>
       </div>
 
