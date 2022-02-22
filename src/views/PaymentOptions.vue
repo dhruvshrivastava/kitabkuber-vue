@@ -1,15 +1,68 @@
 <template>
 <div>
 <div class = "card">
-<button type="submit" 
-            class="mt-10 w-50 bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 foc
-            us:ring-indigo-500" @click="submitCOD">
-            Pay using Cash on Delivery 
-            </button>
-<button id="rzp-button1" class="mt-10 w-50 bg-blue-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 foc
-            us:ring-indigo-500" >Online Payment using Razorpay</button>
+<div class = "content">
+ <div class="bg-white shadow overflow-hidden">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Review Order
+      </h3>
+      <p class="mt-1 max-w-2xl text-sm text-gray-500">
+        Shipping Details 
+      </p>
+    </div>
+    <div class="border-t border-gray-200">
+      <dl>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Delivering to
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ first_name }}, {{ email }}
+          </dd>
+        </div>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Mobile Number
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ phone }}
+          </dd>
+        </div>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Book Name
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ book_name }}
+          </dd>
+        </div>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Total Payable
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ total }}
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
 
-</div></div>
+</div>
+
+<div class = "grid grid-cols-3 gap-1">
+<div><button type="submit" 
+            class="mt-10 w-50 bg-gray-600 border border-transparent py-3 px-8 flex text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 foc
+            us:ring-indigo-500" @click="submitCOD">
+            Place Order via Cash on Delivery
+            </button></div>
+<div><button id="rzp-button1" class="mt-10 w-50 bg-blue-600 border border-transparent py-3 px-8 flex text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 foc
+            us:ring-indigo-500" >Online Payment using Razorpay</button></div>
+<div><br><br><a href="https://razorpay.com/" target="_blank"> <img referrerpolicy="origin" src = "https://badges.razorpay.com/badge-dark.png " style = "height: 45px; width: 113px;" alt = "Razorpay | Payment Gateway | Neobank"></a>
+</div><br>
+
+</div></div></div>
 
 </template>
 
@@ -114,7 +167,6 @@ export default {
         },
 
         async submitCOD() {
-            this.order["payment"] = "cod"
             await axios
             .post('/api/v1/checkout/', this.order)
             this.$router.push('/success')

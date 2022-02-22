@@ -45,9 +45,9 @@
       </nav>
 
       <!-- Image gallery -->
-      <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-2xl lg:px-8 lg:grid lg:grid-cols-1 lg:gap-x-8">
+      <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-2xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
         <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-          <img :src="product.get_image"  class="w-full h-50 object-center object-cover" />
+          <img :src="product.get_image"  class="w-50 h-50" />
         </div>
       </div>
 
@@ -61,30 +61,10 @@
 
         <!-- Options -->
         <div class="mt-0 lg:mt-0 lg:row-span-3">
-          <h2 class="sr-only">Book Information</h2>
           <p class="text-2xl text-gray-900"><strong>MRP:</strong> Rs.{{ product.mrp }}</p>
-          <p class="text-2xl text-gray-900"><strong>Monthly Rent:</strong> Rs.{{ product.rent }}</p>
-          <p class="text-2xl text-gray-900"><strong>Deposit:</strong> Rs.{{ product.deposit }}</p>
-
-
-          <form class="mt-10" @submit.prevent="submitRentCheckout">
-          <div>
-                    <label for="price" class="block text-sm font-medium text-gray-700">Enter Rental Period (in Months)</label>
-                    <div class="mt-1 relative rounded-md shadow-sm">
-
-                    <input placeholder="Enter Months" type="text" v-model="rental_period" name="months" id="months" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md" required/>
-                    </div>
-            </div>
-            <button type="submit" 
-            class="mt-10 w-full bg-green-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 foc
-            us:ring-indigo-500" @click="submitRentCheckout">Rent</button>
-            <div>
-              <p> {{ error }} </p>
-            </div>
-          </form>
-            <button type="submit" class="mt-10 w-full bg-yellow-600 border border-transparent 
+            <button type="submit" class="mt-10 w-full bg-green-600 border border-transparent 
             rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 
-            focus:ring-offset-2 focus:ring-indigo-500" @click="submitBuyCheckout">Buy</button>
+            focus:ring-offset-2 focus:ring-indigo-500" @click="submitBuyCheckout">Buy & Proceed to Checkout</button>
           
         </div>
 
@@ -104,7 +84,7 @@
             <div class="mt-4 space-y-6">
               <h3 class="text-sm text-gray-600">
                   <ul>
-                      <li> Delivery within 7-10 working days </li>
+                      <li> Delivery within 5-8 working days </li>
                       <li> Condition: {{ product.condition }} </li>
                   </ul>
               </h3>

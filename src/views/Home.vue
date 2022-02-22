@@ -4,13 +4,12 @@
   <div class="text-container md:mt-10 md:w-1/2">
         <div class="sm:max-w-lg">
           <h1 class="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-            Looking to Rent Books?
+            Looking for Rent Books?
           </h1>
           <h1 class="text-4xl font font-extrabold tracking-tight text-green-900 sm:text-6xl">
             Here's KitabKuber
           </h1>
-          <p class="mt-4 text-xl text-gray-500">KitabKuber lets you buy or rent exam preparation books at affordable rates. Our rental 
-            plans are exclusively curated for students so that they can focus on their exams and save big. 
+          <p class="mt-4 text-xl text-gray-500"> The #1 online book store for students. Choose from over 500+ books and save big!
           </p>
         </div>
 
@@ -30,10 +29,10 @@
       <div class="lg:text-center" style="background-color: #F8F0E3"><br>
         <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Why KitabKuber?</h2>
         <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-          A better way to rent books. 
+          A better way to buy and rent books
         </p>
         <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-          Our affordable rental plans and knack for customer satisfaction make us the #1 book rental platform for students. 
+        Affordable prices as well as rental plans exclusively curated for students, make us the preferred choice of students across the country  . 
         </p><br>
       </div>
 
@@ -69,8 +68,10 @@
 <script>
 
 export default {
-    name: 'Home'
+    name: 'Home',
+    mounted() {
+      document.title = 'KitabKuber | The #1 book store for students'
+    }
 }
-
 
 </script>

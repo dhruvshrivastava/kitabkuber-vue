@@ -54,7 +54,16 @@
                 <img class="h-40 w-auto" src="./assets/logo.png" alt=""/>
               </a>
             </div>
-<div class="p-10">
+
+
+                 <div class="ml-auto flex items-center" v-if="$store.state.isAuthenticated">
+              <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                <a href="/my-account/" class="text-sm font-medium text-gray-700 hover:text-gray-800">My account</a>
+                 </div>
+                 </div>
+
+            <div class="ml-auto flex items-center" v-else>
+              <div class="p-10">
 
   <div class="dropdown inline-block relative">
     <button class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
@@ -78,14 +87,6 @@
   </div>
 
 </div>
-
-                 <div class="ml-auto flex items-center" v-if="$store.state.isAuthenticated">
-              <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                <a href="/my-account/" class="text-sm font-medium text-gray-700 hover:text-gray-800">My account</a>
-                 </div>
-                 </div>
-
-            <div class="ml-auto flex items-center" v-else>
               <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                 <a href="/login/" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
                 <span class="h-6 w-px bg-gray-200" aria-hidden="true" />

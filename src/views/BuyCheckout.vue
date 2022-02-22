@@ -2,7 +2,7 @@
     <div class="page-checkout">
         <div class="columns is-multiline">
 
-  <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+  <div class="bg-white shadow overflow-hidden">
     <div class="px-4 py-5 sm:px-6">
       <h3 class="text-lg leading-6 font-medium text-gray-900">
         Book Information
@@ -38,7 +38,7 @@
           </dd>
           
         </div>
-                              <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
            Shipping Charges
           </dt>
@@ -191,14 +191,8 @@ export default {
                 'pincode': this.pincode,
                 'phone': this.phone,
                 'book_name': this.buy["name"],
-                'mrp': this.buy["mrp"],
-                'rent': this.buy["rent"],
-                'deposit': this.buy["deposit"],
-                "type":"buy",
-                "rental_period":0,
                 "thumbnail": this.buy["thumbnail"],
                 "total": this.total,
-                "payment": ""
 
             }
             const postData = {
