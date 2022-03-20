@@ -4,15 +4,15 @@
     <div class="max-w-md w-full space-y-8">
       <div>
         <h2 class="mt-6 text-center text-3xl  text-gray-900">
-          Don't see a book you want in our catalog? Submit an enquiry and we'll arrange the book for you. 
+          Don't see a book you want in our catalog or want to rent a book? Submit an enquiry and our team will be in touch with you soon. 
         </h2>
       </div>
       <form class="mt-8 space-y-6" @submit.prevent='submitForm'>
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm -space-y-px">
           <div>
-            <label for="username" class="sr-only">Full Name</label>
-            <input id="user_name" name="user_name" type="text" v-model = "user_name" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Full Name" />
+            <label for="username" class="sr-only">Enter Email</label>
+            <input id="user_name" name="user_name" type="text" v-model = "user_name" required="" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Enter Email" />
           </div>
           <div>
             <label for="book_name" class="sr-only">Book Name</label>

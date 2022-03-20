@@ -100,7 +100,7 @@ export default {
         this.getMyOrders()
         
         this.order = this.$store.state.order
-        this.total = this.order["total"]*100
+        this.total = this.order["total"]
         this.book_name = this.order["book_name"]
         this.first_name = this.order["first_name"]
         this.email = this.order["email"]

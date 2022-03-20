@@ -16,12 +16,18 @@ import SuccessEnquiry from '../views/SuccessEnquiry.vue'
 import Enquiry from '../views/Enquiry.vue'
 import PaymentOptions from '../views/PaymentOptions.vue'
 import FAQ from '../views/FAQ.vue'
+import RentalPlan from '../views/RentalPlan.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/rental-plans',
+    name: 'Rental Plan',
+    component: RentalPlan
   },
   {
     path: '/payment-options',

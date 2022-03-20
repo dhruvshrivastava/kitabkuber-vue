@@ -4,12 +4,12 @@
   <div class="text-container md:mt-10 md:w-1/2">
         <div class="sm:max-w-lg">
           <h1 class="text-4xl font font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-            Looking for Rent Books?
+            Looking for books?
           </h1>
           <h1 class="text-4xl font font-extrabold tracking-tight text-green-900 sm:text-6xl">
             Here's KitabKuber
           </h1>
-          <p class="mt-4 text-xl text-gray-500"> The #1 online book store for students. Choose from over 500+ books and save big!
+          <p class="mt-4 text-xl text-gray-500"> The #1 online book store for students. Rent preparation books and reference guides at affordable prices and save big.
           </p>
         </div>
 
@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="image-container md:w-1/2 md:mt-15 md:-mr-20">
-  <img src = "../assets/background.jpeg" class = "h-full">
+  <img src = "https://ik.imagekit.io/depesmz3az8/background_ZfQEuoGIN.jpeg?ik-sdk-version=javascript-1.4.3&updatedAt=1647796422220" class = "h-full">
   </div></div><hr><br>
 <div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

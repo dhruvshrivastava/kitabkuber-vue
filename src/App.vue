@@ -30,6 +30,9 @@
               <div class="flow-root">
                 <a href="/register/" class="-m-2 p-2 block font-medium text-gray-900">Create account</a>
               </div>
+                <div class="flow-root">
+                <a href="/rental-plans/" class="-m-2 p-2 block font-medium text-gray-900">Rent Books</a>
+              </div>
             </div>
 
           </div>
@@ -88,9 +91,11 @@
 
 </div>
               <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                <a href="/rental-plans/" class="-m-2 p-2 block font-medium text-gray-900">Rent Books</a>
                 <a href="/login/" class="text-sm font-medium text-gray-700 hover:text-gray-800">Sign in</a>
                 <span class="h-6 w-px bg-gray-200" aria-hidden="true" />
                 <a href="/register/" class="text-sm font-medium text-gray-700 hover:text-gray-800">Create account</a>
+                
               </div>
               </div>
               <!-- Search -->
