@@ -1,24 +1,32 @@
 <template>
-    <div class="page-checkout">
-        <div class="columns is-multiline">
-
-  <div class="bg-white shadow overflow-hidden">
+<div>
+<div class = "card">
+<div class = "content">
+ <div class="bg-white shadow overflow-hidden">
     <div class="px-4 py-5 sm:px-6">
       <h3 class="text-lg leading-6 font-medium text-gray-900">
-        Book Information
+        Review Order
       </h3>
       <p class="mt-1 max-w-2xl text-sm text-gray-500">
-        Book Details 
+        Shipping Details 
       </p>
     </div>
     <div class="border-t border-gray-200">
       <dl>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           <dt class="text-sm font-medium text-gray-500">
-            Book 
+            Delivering to
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            <img :src = "buy['thumbnail']">
+            {{ first_name }}, {{ email }}
+          </dd>
+        </div>
+        <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <dt class="text-sm font-medium text-gray-500">
+            Mobile Number
+          </dt>
+          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+            {{ phone }}
           </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -26,24 +34,7 @@
             Book Name
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ buy["name"] }}
-          </dd>
-        </div>
-        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-            MRP
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ buy["mrp"] }}
-          </dd>
-          
-        </div>
-            <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt class="text-sm font-medium text-gray-500">
-           Shipping Charges
-          </dt>
-          <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-           <p>Rs. 50</p>
+            {{ book_name }}
           </dd>
         </div>
         <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -51,167 +42,148 @@
             Total Payable
           </dt>
           <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-            {{ total }}
+            {{ display_total }}
           </dd>
         </div>
       </dl>
     </div>
   </div>
-  <br>
-    <div class="mt-10 sm:mt-0">
-    <div class="md:grid md:grid-cols-3 md:gap-6">
-      <div class="md:col-span-1">
-        <div class="px-4 sm:px-0">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Shipping Details</h3>
-          <p class="mt-1 text-sm text-gray-600">
-            Please enter your shipping details
-          </p>
-        </div>
-      </div>
-      <div class="mt-5 md:mt-0 md:col-span-2">
-        <form>
-          <div class="shadow overflow-hidden sm:rounded-md">
-            <div class="px-4 py-5 bg-white sm:p-6">
-              <div class="grid grid-cols-6 gap-6">
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="first-name" class="block text-sm font-medium text-gray-700">First name</label>
-                  <input type="text" name="first-name" v-model="first_name" id="first-name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
 
-                <div class="col-span-6 sm:col-span-3">
-                  <label for="last-name" class="block text-sm font-medium text-gray-700">Last name</label>
-                  <input type="text" name="last-name" v-model="last_name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
+</div>
 
-                <div class="col-span-6 sm:col-span-4">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">Email address</label>
-                  <input type="text" name="email-address" v-model="email" id="email-address" autocomplete="email" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-                <div class="col-span-6 sm:col-span-4">
-                  <label for="email-address" class="block text-sm font-medium text-gray-700">Mobile Number</label>
-                  <input type="text" name="mobile-number" v-model="phone" id="email-address" autocomplete="Mobile Number" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
+<div class = "grid grid-cols-3 gap-1">
+<div><button type="submit" 
+            class="mt-10 w-50 bg-gray-600 border border-transparent py-3 px-8 flex text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 foc
+            us:ring-indigo-500" @click="submitCOD">
+            Place Order via Cash on Delivery
+            </button></div>
+<div><button id="rzp-button1" class="mt-10 w-50 bg-blue-600 border border-transparent py-3 px-8 flex text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 foc
+            us:ring-indigo-500" >Online Payment using Razorpay</button></div>
+<div><br><br><a href="https://razorpay.com/" target="_blank"> <img referrerpolicy="origin" src = "https://badges.razorpay.com/badge-dark.png " style = "height: 45px; width: 113px;" alt = "Razorpay | Payment Gateway | Neobank"></a>
+</div><br>
 
-                <div class="col-span-6">
-                  <label for="street-address" class="block text-sm font-medium text-gray-700">Street address</label>
-                  <input type="text" name="street-address" v-model="address" id="street-address" autocomplete="street-address" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
+</div></div></div>
 
-                <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                  <label for="city" class="block text-sm font-medium text-gray-700">City</label>
-                  <input type="text" name="city" id="city" v-model="city" autocomplete="address-level2" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label for="region" class="block text-sm font-medium text-gray-700">State / Province</label>
-                  <input type="text" name="region" id="region" v-model="state" autocomplete="address-level1" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-
-                <div class="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label for="postal-code" class="block text-sm font-medium text-gray-700">Pincode</label>
-                  <input type="text" name="postal-code" v-model="pincode" id="postal-code" autocomplete="postal-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
-                </div>
-              </div>
-            </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <button @click="submitForm" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                View Payment Options 
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-        </div>
-        <router-view></router-view>
-    </div>
 </template>
+
 
 <script>
 import axios from 'axios'
+
 export default {
-    name: 'Checkout',
+    name: 'PaymentOptions',
+
     data() {
         return {
-            buy: [],
-            first_name: '',
-            last_name: '',
-            email: '',
-            phone: '',
-            address: '',
-            city: '',
-            state: '',
-            pincode: '',
-            errors: [],
+            orders: [],
+            order_id: null,
+            order: null,
             total: 0,
-
+            options: {},
+            book_name: null,
+            first_name: null, 
+            email: null, 
+            phone: null,
+            address: null,
+            city: null,
+            state: null,
+            pincode: null,
+            phone: null,
+            mrp: null,
+            rent: null,
+            deposit: null,
+            thumbnail: null,
+            display_total: 0
         }
     },
     mounted() {
-        document.title = 'Checkout | KitabKuber'
-        this.buy = this.$store.state.buy
-        this.total = this.buy["mrp"] + 50
+        document.title = 'Payment Options | KitabKuber'
+        this.getMyOrders()
         
+        this.order = this.$store.state.order
+        this.display_total = this.order["total"]
+        this.total = this.order["total"]*100
+        this.book_name = this.order["book_name"]
+        this.first_name = this.order["first_name"]
+        this.email = this.order["email"]
+        this.phone = this.order["phone"]
+        
+        var options = {
+                "key": "rzp_live_o773T9iMnfqoc5",
+                "amount": this.total, 
+                "currency": "INR",
+                "name": "KitabKuber",
+                "description": this.book_name,
+                "image": "https://example.com/your_logo",
+                "order_id": this.order_id, 
+                "handler": function(response) {
+                    alert("Transaction successful.")
+                    location.href = '/success'
+                },
+                
+                "prefill": {
+                    "name": this.first_name,
+                    "email": this.email,
+                    "contact": this.phone
+                },
+                "notes": {
+                    "address": "KitabKuber, Shop No. C-019, 81 Business Street, Sector 86, Faridabad, Haryana"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+                
+    };  
+
+                var rzp1 = new Razorpay(options);
+            rzp1.on('payment.failed', function (response){
+                    this.flag = false
+                    alert(response.error.code);
+                    alert(response.error.description);
+                    alert(response.error.source);
+                    alert(response.error.step);
+                    alert(response.error.reason);
+                    alert(response.error.metadata.order_id);
+                    alert(response.error.metadata.payment_id);
+            });
+            
+            document.getElementById('rzp-button1').onclick = function(e, response){
+                rzp1.open();
+                e.preventDefault();
+                
+            }
+            this.submitOrder()
     },
     methods: {
-       async submitForm() {
-            this.errors = []
-            if (this.first_name === '') {
-                this.errors.push('The first name field is missing!')
-            }
-            if (this.last_name === '') {
-                this.errors.push('The last name field is missing!')
-            }
-            if (this.email === '') {
-                this.errors.push('The email field is missing!')
-            }
-            if (this.phone === '') {
-                this.errors.push('The phone field is missing!')
-            }
-            if (this.address === '') {
-                this.errors.push('The address field is missing!')
-            }
-            if (this.city === '') {
-                this.errors.push('The address field is missing!')
-            }
-            if (this.state === '') {
-                this.errors.push('The address field is missing!')
-            }
-            if (this.pincode === '') {
-                this.errors.push('The zip code field is missing!')
-            }
-            const data = {
-                'first_name': this.first_name,
-                'last_name': this.last_name,
-                'email': this.email,
-                'address': this.address,
-                'city': this.city,
-                'state': this.state,
-                'pincode': this.pincode,
-                'phone': this.phone,
-                'book_name': this.buy["name"],
-                "thumbnail": this.buy["thumbnail"],
-                "total": this.total,
 
-            }
-            const postData = {
-              'total': this.total
-            }
-            this.$store.commit('addToOrder',data)
+        async getMyOrders() {
             await axios
-            .post('/api/v1/create-rp-order/', postData)
-            .then(
-              this.$router.push('/payment-options')
-            )
-            .catch(error => {
-              console.log(error)
-            })
-
-            
+                .get('/api/v1/get-rp-order/')
+                .then(response => {
+                    this.orders = response.data
+                    this.order_id = this.orders[0].id
+                })
+                .catch(error => {
+                    console.log(error)
+                })
         },
 
-    },
+        async submitCOD() {
+            await axios
+            .post('/api/v1/checkout/', this.order)
+            this.$router.push('/success')
+            
+        },
+        async submitOrder() {
+            this.order["payment"] = "razorpay"
+            await axios 
+            .post('/api/v1/checkout/', this.order)
+        }
+        
+        },
 
-}
+
+    }
+
+
 </script>
